@@ -14,6 +14,7 @@ class ContractForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
+            ->columns(1) // Примусово 1 колонка для всієї форми, щоб блоки розширилися
             ->components([
                 Grid::make(12)->schema([
                     Section::make('Деталі договору')
