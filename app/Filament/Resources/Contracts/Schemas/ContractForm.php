@@ -15,7 +15,7 @@ class ContractForm
     {
         return $schema
             ->components([
-                Grid::make(['lg' => 3])->schema([
+                Grid::make(12)->schema([
                     Section::make('Деталі договору')
                         ->icon('heroicon-o-information-circle')
                         ->schema([
@@ -31,7 +31,7 @@ class ContractForm
                             TextInput::make('type')
                                 ->label('Вид договору'),
                         ])
-                        ->columnSpan(['lg' => 2]),
+                        ->columnSpan(8),
 
                     Section::make('Дані та Терміни')
                         ->icon('heroicon-o-calendar')
@@ -47,7 +47,7 @@ class ContractForm
                                 ->label('Діє до')
                                 ->native(false),
                         ])
-                        ->columnSpan(['lg' => 1]),
+                        ->columnSpan(4),
                 ]),
             ]);
     }

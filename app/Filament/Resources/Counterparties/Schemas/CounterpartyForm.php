@@ -14,7 +14,7 @@ class CounterpartyForm
     {
         return $schema
             ->components([
-                Grid::make(['lg' => 3])->schema([
+                Grid::make(12)->schema([
                     Section::make('Основна інформація')
                         ->icon('heroicon-o-user')
                         ->schema([
@@ -26,7 +26,7 @@ class CounterpartyForm
                             TextInput::make('type')
                                 ->label('Вид контрагента'),
                         ])
-                        ->columnSpan(['lg' => 2]),
+                        ->columnSpan(8),
 
                     Section::make('Документи та Реквізити')
                         ->icon('heroicon-o-identification')
@@ -38,7 +38,7 @@ class CounterpartyForm
                             TextInput::make('bank_account')
                                 ->label('Рахунок IBAN'),
                         ])
-                        ->columnSpan(['lg' => 1]),
+                        ->columnSpan(4),
                 ]),
 
                 Section::make('Контактні дані')
