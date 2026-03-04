@@ -15,13 +15,15 @@ class ContractForm
     {
         return $schema
             ->components([
-                Grid::make(3)->schema([
+                Grid::make(['lg' => 3])->schema([
                     Section::make('Деталі договору')
+                        ->icon('heroicon-o-information-circle')
                         ->schema([
                             Select::make('counterparty_id')
                                 ->label('Контрагент')
                                 ->relationship('counterparty', 'name')
                                 ->searchable()
+                                ->preload()
                                 ->required(),
                             TextInput::make('name')
                                 ->label('Найменування')
@@ -29,9 +31,10 @@ class ContractForm
                             TextInput::make('type')
                                 ->label('Вид договору'),
                         ])
-                        ->columnSpan(2),
+                        ->columnSpan(['lg' => 2]),
 
                     Section::make('Дані та Терміни')
+                        ->icon('heroicon-o-calendar')
                         ->schema([
                             TextInput::make('number')
                                 ->label('Номер договору'),
@@ -44,7 +47,7 @@ class ContractForm
                                 ->label('Діє до')
                                 ->native(false),
                         ])
-                        ->columnSpan(1),
+                        ->columnSpan(['lg' => 1]),
                 ]),
             ]);
     }

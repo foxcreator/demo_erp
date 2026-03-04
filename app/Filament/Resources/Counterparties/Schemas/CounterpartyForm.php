@@ -14,8 +14,9 @@ class CounterpartyForm
     {
         return $schema
             ->components([
-                Grid::make(3)->schema([
+                Grid::make(['lg' => 3])->schema([
                     Section::make('Основна інформація')
+                        ->icon('heroicon-o-user')
                         ->schema([
                             TextInput::make('name')
                                 ->label('Найменування')
@@ -25,9 +26,10 @@ class CounterpartyForm
                             TextInput::make('type')
                                 ->label('Вид контрагента'),
                         ])
-                        ->columnSpan(2),
+                        ->columnSpan(['lg' => 2]),
 
                     Section::make('Документи та Реквізити')
+                        ->icon('heroicon-o-identification')
                         ->schema([
                             TextInput::make('inn')
                                 ->label('ІНН'),
@@ -36,10 +38,11 @@ class CounterpartyForm
                             TextInput::make('bank_account')
                                 ->label('Рахунок IBAN'),
                         ])
-                        ->columnSpan(1),
+                        ->columnSpan(['lg' => 1]),
                 ]),
 
                 Section::make('Контактні дані')
+                    ->icon('heroicon-o-envelope')
                     ->schema([
                         Grid::make(2)->schema([
                             TextInput::make('phone')
@@ -49,12 +52,14 @@ class CounterpartyForm
                                 ->label('Email address')
                                 ->email(),
                         ]),
-                        Textarea::make('legal_address')
-                            ->label('Юридична адреса')
-                            ->rows(3),
-                        Textarea::make('actual_address')
-                            ->label('Фактична адреса')
-                            ->rows(3),
+                        Grid::make(2)->schema([
+                            Textarea::make('legal_address')
+                                ->label('Юридична адреса')
+                                ->rows(3),
+                            Textarea::make('actual_address')
+                                ->label('Фактична адреса')
+                                ->rows(3),
+                        ]),
                     ]),
             ]);
     }
